@@ -19,18 +19,46 @@ Research centers and governmental agencies [recommend research data encryption](
 
 ----------------------
 
-Logon with fingerprint ([fcns.eu](http://fcns.eu/2012/04/29/fingerprint-reader/), [ullrich-online.cc](http://www.ullrich-online.cc/fingerprint/))
+
+Monitor Degradation and Failure of your Hard Drive
 ----------------------
+  - manual start/stop of `smartd`: sudo /usr/local/etc/init.d/smartd start
+  - http://www.cyberciti.biz/tips/monitoring-hard-disk-health-with-smartd-under-linux-or-unix-operating-systems.html
+  - http://www.linuxjournal.com/content/know-when-your-drives-are-failing-smartd
+  - http://www.ibiblio.org/elemental/howto/disk-monitoring.html
+  - http://www.fibrevillage.com/storage/46-how-to-configure-smartd-to-monitor-hard-disk-health-under-linux
 
 ----------------------
 
-Use Flatten Design ([NitruxSA](https://github.com/NitruxSA/flattr-icons), [nytimes.com](http://bits.blogs.nytimes.com/2013/04/23/the-flattening-of-design/?_r=0))
+
+Logon with fingerprint
 ----------------------
+  - tutorial for X1: http://fcns.eu/2012/04/29/fingerprint-reader/
+  - http://www.ullrich-online.cc/fingerprint
 
 ----------------------
+
+
+Use Flatten Design
+----------------------
+  - flatten icons made by NitruxSA for GNOME: https://github.com/NitruxSA/flattr-icons
+  - window decoration with [Compiz/Emerald](http://wiki.compiz.org/Decorators/Emerald): http://gnome-look.org/content/show.php/Elegant+Brit?content=74553
+  - some discussions: http://bits.blogs.nytimes.com/2013/04/23/the-flattening-of-design/?_r=0
+
+----------------------
+
+
+Get the `Menu` key back
+----------------------
+  - http://efod.se/writings/linuxbook/html/caps-lock-to-ctrl.html
+
+
+----------------------
+
 
 Add System Indicators on GNOME Panel
 ----------------------
+
 
 ----------------------
 
@@ -43,3 +71,4 @@ Hai Nguyen Van <nguyen-van@lri.fr>
 
 
 
+sudo /usr/local/etc/init.d/smartd start
