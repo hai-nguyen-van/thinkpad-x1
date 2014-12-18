@@ -27,7 +27,7 @@ Research centers and governmental agencies [recommend research data encryption](
 
 ----------------------
 
-Monitor Degradation and Failure of your Hard Drive
+Monitor and Gauge Hard Drive Failure
 ----------------------
 Monitoring your hard drive health allows you [to gauge (and eventually to anticipate) disk failure to avoid data loss](http://www.linuxjournal.com/content/know-when-your-drives-are-failing-smartd). This information is computed and reported by the disk thanks to the [SMART](http://wdc.custhelp.com/app/answers/detail/a_id/251/) technology. 
 
@@ -35,7 +35,8 @@ Monitoring your hard drive health allows you [to gauge (and eventually to antici
   2. Check if your disk is SMART capable: `sudo smartctl -i [disk path]"`
   3. Check disk general state of health: `sudo smartctl -H [disk path]`
   4. Update drive database: `sudo update-smart-drivedb`
-  4. Configure the `smartd` daemon
+  5. Configure the `smartd` daemon
+  
   - Start daemon on system startup by uncommenting or adding the following lines in `/etc/default/smartmontools`:
 
 		start_smartd=yes
