@@ -1,12 +1,18 @@
 Enhancing Ubuntu 12.04 LTS on a ThinkPad X1 machine
 ==============
 
-*Design* and *User Experience* (UX/UI) are topics that developers should never underestimate. In this way, customizing your favorite Linux distribution should give you a better work experience. Here is a cheatsheet that gathers tips I applied to [Ubuntu 12.04 LTS (Precise Pangolin)](http://releases.ubuntu.com/12.04/) with [GNOME 3 Fallback Session (Classic)](https://launchpad.net/ubuntu/precise/+package/gnome-session-fallback) on my [Lenovo ThinkPad X1](http://www.lenovo.com/mp/x1/index.html).
+*User Experience* (UX/UI) is a topic that developers should never underestimate. This includes as well software issues as hardware components. In this way, customizing your favorite Linux distribution should give you a better work experience. Here is a cheatsheet that gathers tips I applied to [Ubuntu 12.04 LTS (Precise Pangolin)](http://releases.ubuntu.com/12.04/) with [GNOME 3 Fallback Session (Classic)](https://launchpad.net/ubuntu/precise/+package/gnome-session-fallback) on my [Lenovo ThinkPad X1](http://www.lenovo.com/mp/x1/index.html).
 
 ![Alt text](https://raw.githubusercontent.com/EmptyStackExn/enhancing-ubuntuprecise-thinkpadx1/master/images/desktop.png "A screenshot of my desktop")
 
 ----------------------
 
+Upgrade hardware components
+----------------------
+  * [Corsair® CMSO8GX3M1A1333C9 (8GB DDR3 SODIMM Memory)](http://www.corsair.com/en-us/value-select-8gb-ddr3-sodimm-memory-kit-cmso8gx3m1a1333c9)
+  * [Seagate® 600 SSD ST480HM000](http://www.seagate.com/www-content/product-content/seagate-laptop-fam/600-ssd/fr/docs/600-ssd-data-sheet-ds1780-1-1304fr.pdf)
+
+----------------------
 
 Plug your [Android device](http://www.android.com/) with [MTP](http://www.androidcentral.com/ics-feature-mtp-what-it-why-use-it-and-how-set-it) protocol
 ----------------------
@@ -53,6 +59,16 @@ Monitoring your hard drive health allows you [to gauge (and eventually to antici
 
 ----------------------
 
+Fix sound in a OS X Mavericks virtual machine in VMware Workstation 10
+----------------------
+  1. Identify the audio output used by the host system with `aplay -L`
+  2. Open the virtual machine `.vmx` file and change the following variables with identified devices
+
+		sound.fileName = "sysdefault:CARD=PCH"
+		sound.autodetect = "FALSE"
+
+
+----------------------
 
 Logon with fingerprint
 ----------------------
