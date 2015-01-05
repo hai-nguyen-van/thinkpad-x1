@@ -9,8 +9,8 @@ Enhancing Ubuntu 12.04 LTS on a ThinkPad X1 machine
 
 Upgrade hardware components
 ----------------------
-  * [Corsair® CMSO8GX3M1A1333C9 (8GB DDR3 SODIMM Memory)](http://www.corsair.com/en-us/value-select-8gb-ddr3-sodimm-memory-kit-cmso8gx3m1a1333c9)
-  * [Seagate® 600 SSD ST480HM000](http://www.seagate.com/www-content/product-content/seagate-laptop-fam/600-ssd/fr/docs/600-ssd-data-sheet-ds1780-1-1304fr.pdf)
+  * Avoid swapping, upgrade RAM to 8GB: [Corsair® CMSO8GX3M1A1333C9 (8GB DDR3 SODIMM Memory)](http://www.corsair.com/en-us/value-select-8gb-ddr3-sodimm-memory-kit-cmso8gx3m1a1333c9)
+  * Delay regular hard-drive failure, use a SSD: [Seagate® 600 SSD ST480HM000](http://www.seagate.com/www-content/product-content/seagate-laptop-fam/600-ssd/fr/docs/600-ssd-data-sheet-ds1780-1-1304fr.pdf)
 
 ----------------------
 
@@ -21,6 +21,7 @@ You can plug your device and automatically get it mounted without performing any
  1. Add the following PPA repository: `sudo add-apt-repository ppa:langdalepl/gvfs-mtp`
  2. Update your packages: `sudo apt-get update && sudo apt-get upgrade`
 
+----------------------
 
 Encrypt your Hard Drive ([howtogeek.com](http://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/))
 ----------------------
@@ -53,6 +54,7 @@ Monitoring your hard drive health allows you [to gauge (and eventually to antici
 		DEVICESCAN -d removable -n standby -m root -M exec /usr/share/smartmontools/smartd-runner
 
   - Check log entries in `/var/log/syslog` for `smartd` logs
+  - Check if `smartd` is running: `service smartd status`. If not, solve why System V init cannot run it at bootup ([UbuntuBootupHowto](https://help.ubuntu.com/community/UbuntuBootupHowto))
   - You can also manually start or stop the daemon: `sudo /usr/local/etc/init.d/smartd [start | stop]`
   - If you use RAID mirroring, you may need to add [`ARRAY`](http://www.ibiblio.org/elemental/howto/disk-monitoring.html)
 
@@ -61,12 +63,11 @@ Monitoring your hard drive health allows you [to gauge (and eventually to antici
 
 Fix sound in a OS X Mavericks virtual machine in VMware Workstation 10
 ----------------------
-  1. Identify the audio output used by the host system with `aplay -L`
-  2. Open the virtual machine `.vmx` file and change the following variables with identified devices
+  1. Identify the audio output used by the host system with `aplay -L`. It may look like `sysdefault:CARD=PCH`.
+  2. Open the virtual machine `.vmx` file and change the following variables with the identified device
 
 		sound.fileName = "sysdefault:CARD=PCH"
 		sound.autodetect = "FALSE"
-
 
 ----------------------
 
@@ -86,18 +87,30 @@ Use Flatten Design
 
 ----------------------
 
-
 Get the `Menu` key back
 ----------------------
   - http://efod.se/writings/linuxbook/html/caps-lock-to-ctrl.html
 
+----------------------
+
+Type with IBus in Vietnamese (quốc ngữ) Telex
+----------------------
+  1. Install [IBus](https://code.google.com/p/ibus) : `sudo apt-get install ibus ibus-m17n im-config`
+  2. Set up input method to `ibus` with `im-config`
+  3. Add and use `vietnamese - telex (m17n)`
 
 ----------------------
 
+Misc
+----------------------
+  * See emoji icons with `ttf-ancient-fonts` package
+  * Report a bug on a specific process with `ubuntu-bug [process id]`
+  * Compile a list of locale definition files `sudo locale-gen --purge`
+
+----------------------
 
 Add System Indicators on GNOME Panel
 ----------------------
-
 
 ----------------------
 
