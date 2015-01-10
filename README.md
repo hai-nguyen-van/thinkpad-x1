@@ -11,11 +11,12 @@ Contents
 ----------------------
 This repository contains
 
-1. UX/UI tips to configure your operating system in [TIPS.md](TIPS.md)
-2. a cheatsheet for some useful commands in [COMMANDS.md](COMMANDS.md)
-3. various useful scripts you can use in your `$PS1` variable or with a keyboard shortcut :
+1. [`TIPS.md`](TIPS.md) : UX/UI tips to configure your operating system
+2. [`COMMANDS.md`](COMMANDS.md) : a cheatsheet for some useful commands
+3. various useful scripts, you can use in your `$PS1` variable or with a keyboard shortcut
    - [`next_ratp_bus.sh`](next_ratp_bus.sh) : displays stop time of [RATP](http://ratp.fr/) buses
    - [`tunnel_ssh_make.sh`](tunnel_ssh_make.sh) : opens a SSH tunnel with a browser on it (pretty useful when you need to download files from various providers)
+   - [`notify_smart.sh`](notify_smart.sh) : small indicator with colors for SMART analysis on plugged drives
 
 ----------------------
 
