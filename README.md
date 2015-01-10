@@ -9,10 +9,10 @@ Enhancing Ubuntu 12.04 LTS on a ThinkPad X1 machine
 
 This repository contains
 
-	1. UX/UI tips to configure your operating system in [TIPS.md](TIPS.md)
-	2. various useful scripts you can use in your `$PS1` variable or with a keyboard shortcut :
-	   - empty
-	   - empty
+1. UX/UI tips to configure your operating system in [TIPS.md](TIPS.md)
+2. various useful scripts you can use in your `$PS1` variable or with a keyboard shortcut :
+   - empty
+   - empty
 
 ----------------------
 
