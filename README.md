@@ -18,6 +18,7 @@ This repository contains
    - :tropical_fish: [`tunnel_ssh_make.sh`](tunnel_ssh_make.sh) : opens a SSH tunnel with a browser on it (pretty useful when you need to download files from various providers)
    - :vhs: [`notify_smart.sh`](notify_smart.sh) : small indicator with colors for SMART analysis on plugged drives
    - :satellite: [`get_tle.sh`](get_tle.sh) Space-Track TLE satellite information fetcher
+4. :nut_and_bolt: various dotfiles I gathered and merged (based on my needs) in `dotfiles` directory : Emacs
 
 ----------------------
 
