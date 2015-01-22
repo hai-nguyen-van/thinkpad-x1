@@ -219,3 +219,9 @@
 
 ;; Permanently set the default tab-width to 7 characters
 (setq default-tab-width 7)
+
+;; Stop Emacs from “contaminating” the clipboard when 
+;; Ensures the system clipboard has the latest content copied *outsite* Emacs
+(setq x-select-enable-clipboard nil)
+;; Paste shortcut for system clipboard (instead of kill ring)
+(global-set-key (kbd "C-c C-v") 'x-clipboard-yank)

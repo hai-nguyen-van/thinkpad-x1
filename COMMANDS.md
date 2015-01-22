@@ -1,5 +1,5 @@
-Cheat sheet for some useful commands
-----------------------
+Cheat sheet for some useful *NIX commands
+====================
 
   * Report a bug on a specific process
 
@@ -15,7 +15,7 @@ Cheat sheet for some useful commands
 
   * Fetch public keys from MIT PGP Key Server
 
-	gpg --keyserver pgp.mit.edu --recv-keys [key hash]
+		gpg --keyserver pgp.mit.edu --recv-keys [key hash]
 
   * Switch OCaml compiler version
 
@@ -35,3 +35,9 @@ Cheat sheet for some useful commands
   * Decrypt a OpenPGP file
 
 		gpg --output [output file] --decrypt [input file].pgp
+
+
+Some interesting external links
+-----------------------
+
+  * [_Give me that one command you wish you knew years ago. I'll start._](http://www.reddit.com/r/linux/comments/mi80x/give_me_that_one_command_you_wish_you_knew_years/), Reddit
