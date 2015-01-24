@@ -1,6 +1,10 @@
 Cheat sheet for some useful *NIX commands
 ====================
 
+  * **Safely** reboot your machine when the system/GUI does not respond with the [magic SysRq key](http://web.archive.org/web/20070527215139/http://www.ibm.com/developerworks/linux/library/l-magic.html)
+
+		ALT + PrintScreen + [R - E - I - S - U - B]		
+
   * Report a bug on a specific process
 
 		ubuntu-bug [process id]`
@@ -36,6 +40,9 @@ Cheat sheet for some useful *NIX commands
 
 		gpg --output [output file] --decrypt [input file].pgp
 
+  * Multi-lingual speech synthesizer
+
+		espeak -v french "Salut"
 
 Some interesting external links
 -----------------------
