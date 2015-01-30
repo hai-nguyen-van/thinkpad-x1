@@ -14,6 +14,18 @@ You can plug your device and automatically get it mounted without performing any
 
 ----------------------
 
+Remap inconvient keys (`CapsLock` for instance...)
+----------------------
+
+Change `CapsLock` into `Menu` and `Squared` into `CapsLock`. Put the following in `~/.Xmodmap`
+
+	keycode 66 = Menu
+	clear Lock
+	keycode 49 = Caps_Lock
+
+
+----------------------
+
 Encrypt your Hard Drive ([howtogeek.com](http://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/))
 ----------------------
 Research centers and governmental agencies [recommend research data encryption](https://aresu.dsi.cnrs.fr/spip.php?rubrique99) to avoid sensitive information leakage. For this reason, [eCryptfs](http://ecryptfs.org/) made it easy and may not be greedy as the [Intel® Core™ i5-2520M Processor](http://ark.intel.com/fr/products/52229/Intel-Core-i5-2520M-Processor-3M-Cache-up-to-3_20-GHz) provides hardware [Intel® AES-NI](http://www.intel.com/content/www/us/en/architecture-and-technology/advanced-encryption-standard--aes-/data-protection-aes-general-technology.html?_ga=1.149398710.168035845.1418680010) support.
