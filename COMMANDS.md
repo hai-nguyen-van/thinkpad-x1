@@ -5,13 +5,21 @@ Cheat sheet for some useful *NIX commands
 
 		ALT + PrintScreen + [R - E - I - S - U - B]		
 
+  * Scroll up/down a Terminal
+
+		SHIFT + PageUp/PageDown
+
+  * Record desktop screencasts into GIF (`ppa:fossfreedom/byzanz`)
+
+		byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif
+
   * Report a bug on a specific process
 
-		ubuntu-bug [process id]`
+		ubuntu-bug [process id]
 
-  * Compile a list of locale definition files
+  * Decrypt a OpenPGP file
 
-		sudo locale-gen --purge
+		gpg --output [output file] --decrypt [input file].pgp
 
   * Add [authentication key](https://help.ubuntu.com/community/Repositories/Ubuntu#Authentication_Tab) for package signatures
 
@@ -25,7 +33,7 @@ Cheat sheet for some useful *NIX commands
 
 		opam switch [version]
 
-  * Force and set resolution fol *old* screen monitors:
+  * Force and set resolution for *old* screen monitors:
 
 		xrandr --newmode $(gtf 1600 1200 60 | sed -ne 's/"//g;s/ Modeline //p')
 		xrandr --addmode DP1 1600x1200_60.00
@@ -36,13 +44,31 @@ Cheat sheet for some useful *NIX commands
 		git config --global user.name "Hai Nguyen Van"
 		git config --global user.email "hai.nguyen-van@lri.fr"
 
-  * Decrypt a OpenPGP file
-
-		gpg --output [output file] --decrypt [input file].pgp
 
   * Multi-lingual speech synthesizer
 
 		espeak -v french "Salut"
+
+  * Compile a list of locale definition files
+
+		sudo locale-gen --purge
+
+  * Watch for incoming connections on a certain port (refresh every 1 sec)
+
+		watch -d -n 1 "netstat -an | grep :8080"
+
+  * Search the manual page names and descriptions
+
+		apropos [keyword]
+
+  * Trace system calls and signals
+
+		strace
+
+  * Trace disk space hogs
+  
+		ncdu
+		
 
 Some interesting external links
 -----------------------
