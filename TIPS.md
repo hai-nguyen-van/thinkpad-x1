@@ -35,6 +35,12 @@ Research centers and governmental agencies [recommend research data encryption](
  3. Log on it and run `sudo ecryptfs-migrate-home -u [user]`
  4. Encrypt the swap partition: `sudo ecryptfs-setup-swap`
 
+If you are using fingerprint authentication, you will notice this will not be anymore possible at desktop manager/logon (e.g. `lightdm`). You remove the fingerprint prompt at that time by
+
+ 1. Creating a new PAM configuration file: `sudo cp /etc/pam.d/common-auth /etc/pam.d/common-auth-nofinger`
+ 2. Comment in the former the following line: `auth [success=3 default=ignore] pam_fprintd.so`
+ 3. Change in `/etc/pam.d/lightdm` the `@include` directive to redirect from now on to `/etc/pam.d/common-auth-nofinger`
+
 ----------------------
 
 Monitor and Gauge Hard Drive Failure
