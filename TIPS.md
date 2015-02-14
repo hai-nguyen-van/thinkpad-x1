@@ -1,3 +1,34 @@
+Add More Status Icons
+----------------------
+
+![A screenshot of my GNOME Indicators](img/gnome-indicators.png)
+
+They make my day! In GNOME Panel, status icons can be found in three kinds
+
+1. Applets unifed in `Indicator Applet Complete`
+2. Notification Icons in `Notification Area`
+3. Seperated Panel Items (less common)
+
+GNOME already provides several very interesting status icons. Here are some additional, I would highly advise
+
+* [Redshift](http://jonls.dk/redshift/) - adjusts the color temperature of your screen according to your surroundings
+* [WildGuppy](http://www.thecutestgeek.com/wildguppy) - adjusts a laptop's brightness automatically
+* [Telegram Desktop](https://desktop.telegram.org/) - cloud-based mobile and desktop messaging app with a focus on security and speed
+* [SpiderOak](https://spideroak.com/) - share, sync, and back up data without compromising privacy
+* [Desktop Notifications for Android](http://projects.hcilab.org/notification/) - receive Android notifications in your browser (continuously running Google Chrome in background)
+* [Xpad](https://launchpad.net/xpad) - a sticky notes application
+* [Hardware Sensors Indicator](https://launchpad.net/indicator-sensors) - showing hardware sensors
+* [Recent Notifications](https://launchpad.net/~jconti/+archive/ubuntu/recent-notifications) - collects recent messages sent with `libnotify`
+* [Pastie](http://github.com/fmoralesc/pastie/) - a simple *nix clipboard manager
+* [Feedindicator](https://code.google.com/p/feedindicator/) - RSS feed updates
+* [Radio Tray](http://radiotray.sourceforge.net/) - online radio streaming player
+* [ClassicMenu Indicaotr](http://www.florian-diesch.de/software/classicmenu-indicator/) - a classic GNOME-style application menu
+* [Byzanz](https://github.com/GNOME/byzanz) - record a running X desktop to an animation suitable for presentation in a web browser
+
+After installing, you can configure your system to launch them at startup by either adding lines to `Startup Application Preferences` or adding `.desktop` shortcuts in `~/.config/autostart/`.
+
+----------------------
+
 Upgrade hardware components
 ----------------------
   * Avoid swapping, upgrade RAM to 8GB: [Corsair® CMSO8GX3M1A1333C9 (8GB DDR3 SODIMM Memory)](http://www.corsair.com/en-us/value-select-8gb-ddr3-sodimm-memory-kit-cmso8gx3m1a1333c9)
@@ -117,5 +148,4 @@ Misc
 
 ----------------------
 
-Add System Indicators on GNOME Panel
-----------------------
+

@@ -9,6 +9,10 @@ Cheat sheet for some useful *NIX commands
 
 		SHIFT + PageUp/PageDown
 
+  * Update the icons cache (where `ICON_THEME` is the icon theme for which you installed the new icon)
+
+		sudo gtk-update-icon-cache -f /usr/share/icons/[ICON_THEME]
+
   * Record desktop screencasts into GIF (`ppa:fossfreedom/byzanz`)
 
 		byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif
