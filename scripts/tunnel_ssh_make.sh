@@ -49,7 +49,7 @@ fi
 
 open_chromium_instance () {
     ssh -ND ${ALLOCATED_PORT} ${SSH_SERVER} &
-    ${BROWSER} --incognito --proxy-server="socks5://localhost:${ALLOCATED_PORT} ; http=localhost:${ALLOCATED_PORT}" > /dev/null 2> /dev/null &
+    ${BROWSER} --proxy-server="socks5://localhost:${ALLOCATED_PORT} ; http=localhost:${ALLOCATED_PORT}" > /dev/null 2> /dev/null &
 }
 
 # Default, "open" case

@@ -1,0 +1,206 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+# HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTSIZE=
+export HISTFILESIZE=
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias notify-send="DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send"
+alias alert='notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+alias mountssh='~/.mountssh'
+
+alias rm='rm -i '
+alias vi='vim'
+alias mars='~/code/Compilation_M1/TP4/Mars_4_2.jar'
+
+alias grant_access='/usr/bin/ecryptfs-mount-private && notify-send --urgency=normal -i "terminal" "ACCESS GRANTED" ""'
+
+eval `opam config -env --root=.opam`
+
+alias experience='experience.sh'
+alias etude='experience.sh'
+
+alias caution="notify-send -u critical -i 200px-Biohazard_orange.svg \"CAUTION\" \"Biohazard activity has been found in your local workspace\""
+alias caution-trash="notify-send -u critical -i infectious_waste \"CAUTION BIOHAZARD\" \"Biohazard activity has been found in your trash bin. Please empty as soon as possible.\""
+alias caution-session="notify-send -u critical -i Confined-Space-Danger-Sign-S-0703G \"RESTRICTED AREA\" \"Your workspace is locked, you can type unlockcea.\""
+alias caution-unlocked="notify-send -u critical -i Keep-Out-Authorized-Personnel-Sign-S-2438 \"ACCESS GRANTED\" \"Unlocked workspace. Hazardous area. Restricted access. Authorized personnel only.\nIn case of leakage, type bioalert\""
+
+alias bioalert="sudo /home/psaxl/biohazard-containment.sh"
+alias sync_code="rsync -avpz --progress /media/windows/code rjuju:"
+
+export WINEARCH=win64
+
+INFOPATH=${INFOPATH}:/usr/local/texlive/2013/texmf-dist/doc/info
+PATH=${PATH}:/usr/local/texlive/2013/bin/x86_64-linux
+PATH=${PATH}:/home/psaxl/code/thinkpad-x1/scripts/:/home/psaxl/code/thinkpad-x1/scripts/drafts/:/home/psaxl/Paquets/.local/
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+bold=$(tput bold)
+reset=$(tput sgr0)
+
+IP=$(~/code/thinkpad-x1/scripts/drafts/local_ip_address.sh)
+HD_SMART_STATUS=$(~/code/thinkpad-x1/scripts/notify_smart.sh mini-bash)
+
+function color_prompt {
+    if [ $(echo $?) = "0" ]; then
+	echo -n ${bold}${green}→${reset}
+    else
+	echo -n ${bold}${red}⇀${reset}
+    fi
+}
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+# Correct problem with carriage return broken
+# https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Colors_overview
+# https://superuser.com/questions/367275/linux-coloring-bash-prompt-will-break-carriage-return
+
+alias winetricks="env WINEARCH=win32 WINEPREFIX=~/.wine32 winetricks"
+alias wine="env WINEARCH=win32 WINEPREFIX=~/.wine32 wine"
+
+alias pdfmerge="gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -sOutputFile=_output.pdf"
+alias pdfone="gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=1 -dLastPage=1 -sOutputFile=_output.pdf"
+
+# Intégrés en lien symbolique dans /usr/bin
+# PATH=${PATH}:/home/psaxl/Paquets/.local/Isabelle2013-2/bin
+# alias jedit="/home/psaxl/Paquets/Isabelle2013-2/Isabelle2013-2"
+
+export LUSTRE_INSTALL=/usr/local/lustre-v4-III-b-linux64
+source $LUSTRE_INSTALL/setenv.sh
+
+alias aspire-web="wget -E -r -k -np"
+
+# disable the overlay-scrollbars in ~/.xprofile
+# export LIBOVERLAY_SCROLLBAR=0
+
+source Paquets/.local/git-completion.bash
+
+PS1='\[${debian_chroot:+($debian_chroot)}$(color_prompt) ${bold}⊣${reset} ${cyan}${bold}\u${reset}@${IP}$(is_code_directory.sh):${HD_SMART_STATUS}:\w$(__git_ps1 " ${bold}${green}(%s)${reset}")\]\n\$ '
+
+alias restart-compiz="DISPLAY=:0 compiz --replace &"
+alias do-release-upgrade="echo Mise à jour non autorisée sur ce système"
+alias reach-lri-vtx="ssh -X lri-acces-2 \"ssh -X lri29-218\""
+
+#Opens a file with whatever program would open by double clicking on it in a GUI file explorer
+#Usage: try someDocument.doc
+alias try='gnome-open'
+
+# Spécifier l'interface
+alias watch-tcp="sudo tcpdump -n"
+alias watch-syslog="tail -f /var/log/syslog"
+alias watch-osx="tail -f /home/psaxl/Machines\ virtuelles/OS\ X\ Mavericks/vmware.log"
+
+alias battery-time="upower -i $(upower -e | grep BAT0) | grep \"time to empty\""
+
+function unit {
+uname -a | lolcat
+}
+
+unit
+
+
