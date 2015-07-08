@@ -54,7 +54,6 @@ Change `CapsLock` into `Menu` and `Squared` into `CapsLock`. Put the following i
 	clear Lock
 	keycode 49 = Caps_Lock
 
-
 ----------------------
 
 Encrypt your Hard Drive ([howtogeek.com](http://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/))
@@ -100,6 +99,23 @@ Monitoring your hard drive health allows you [to gauge (and eventually to antici
 
 
 ----------------------
+
+
+Improve endurance and performance of your SSD with [TRIM](http://www.intel.com/support/ssdc/hpssd/sb/CS-031242.htm?wapkw=%28TRIM%29)
+----------------------
+  1. Check for TRIM support: `sudo hdparm -I /dev/sda | grep "TRIM supported"`
+  2. Add to `/etc/cron.daily/trim` the following lines and make it executable with `chmod +x ...`:
+```
+#!/bin/sh
+LOG=/var/log/trim.log
+echo "*** $(date -R) ***" >> $LOG
+fstrim -v / >> $LOG
+fstrim -v /home >> $LOG
+```
+
+
+----------------------
+
 
 Fix sound in a OS X Mavericks virtual machine in VMware Workstation 10
 ----------------------

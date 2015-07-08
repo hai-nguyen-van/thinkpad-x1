@@ -3,7 +3,12 @@ Cheat sheet for some useful *NIX commands
 
   * **Safely** reboot your machine when the system/GUI does not respond with the [magic SysRq key](http://web.archive.org/web/20070527215139/http://www.ibm.com/developerworks/linux/library/l-magic.html)
 
-		ALT + PrintScreen + [R - E - I - S - U - B]		
+		ALT + PrintScreen + [R - E - I - S - U - B]
+
+  * Change desktop cursor
+
+		sudo update-alternatives --config x-cursor-theme
+		dconf-editor # change variable cursor-theme in org.gnome.desktop.interface 
 
   * Scroll up/down a Terminal
 

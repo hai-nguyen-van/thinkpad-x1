@@ -196,9 +196,26 @@ alias watch-syslog="tail -f /var/log/syslog"
 alias watch-osx="tail -f /home/psaxl/Machines\ virtuelles/OS\ X\ Mavericks/vmware.log"
 
 alias battery-time="upower -i $(upower -e | grep BAT0) | grep \"time to empty\""
+alias free-space="df -h | grep -E \"Avail|sda|sdb\""
+
+alias telegram="/home/psaxl/Paquets/.local/Telegram/Telegram"
+
+function datediff {
+    d1=$(date -d "$1" +%s)
+    d2=$(date -d "$2" +%s)
+    # echo $(( (d1 - d2) / 86400 )) days ≈ $(( ((d1 - d2) / 86400) / 7 )) weeks
+    echo $(( (d1 - d2) / 86400 )) days ≈ $(bc -l <<< "scale=1 ; ((${d1} - ${d2}) / 86400) / 7") weeks
+}
+
+function deadlines {
+    /bin/echo -e "HSST'15 summer school \t\t\t $(datediff "June 8" "now")"
+    /bin/echo -e "MEMOCODE'15 paper submission deadline \t $(datediff "June 12" "now")"    
+}
 
 function unit {
-uname -a | lolcat
+    echo "${bold}$(uname -a)${reset}"
+    fortune -s
+    deadlines | lolcat
 }
 
 unit
