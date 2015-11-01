@@ -129,8 +129,8 @@ alias sync_code="rsync -avpz --progress /media/windows/code rjuju:"
 
 export WINEARCH=win64
 
-INFOPATH=${INFOPATH}:/usr/local/texlive/2013/texmf-dist/doc/info
-PATH=${PATH}:/usr/local/texlive/2013/bin/x86_64-linux
+INFOPATH=${INFOPATH}:/usr/local/texlive/2015/texmf-dist/doc/info
+PATH=${PATH}:/usr/local/texlive/2015/bin/x86_64-linux
 PATH=${PATH}:/home/psaxl/code/thinkpad-x1/scripts/:/home/psaxl/code/thinkpad-x1/scripts/drafts/:/home/psaxl/Paquets/.local/
 
 red=$(tput setaf 1)
@@ -180,7 +180,9 @@ alias aspire-web="wget -E -r -k -np"
 
 source Paquets/.local/git-completion.bash
 
-PS1='\[${debian_chroot:+($debian_chroot)}$(color_prompt) ${bold}⊣${reset} ${cyan}${bold}\u${reset}@${IP}$(is_code_directory.sh):${HD_SMART_STATUS}:\w$(__git_ps1 " ${bold}${green}(%s)${reset}")\]\n\$ '
+BLUETOOTH_STATUS=`if (hcitool dev | grep hci0 >/dev/null) ; then echo "${bold}ᚼᛒ${reset}" ; fi`
+
+PS1='\[${debian_chroot:+($debian_chroot)}$(color_prompt) ${bold}⊣${reset} ${cyan}${bold}\u${reset}@${IP}$(is_code_directory.sh):[${HD_SMART_STATUS}${BLUETOOTH_STATUS}]:\w$(__git_ps1 " ${bold}${green}(%s)${reset}")\]\n\$ '
 
 alias restart-compiz="DISPLAY=:0 compiz --replace &"
 alias do-release-upgrade="echo Mise à jour non autorisée sur ce système"
@@ -199,25 +201,17 @@ alias battery-time="upower -i $(upower -e | grep BAT0) | grep \"time to empty\""
 alias free-space="df -h | grep -E \"Avail|sda|sdb\""
 
 alias telegram="/home/psaxl/Paquets/.local/Telegram/Telegram"
+alias evince="evince 2>/dev/null"
+alias nautilus="nautilus 2>/dev/null"
+alias emacs="emacs 2>/dev/null"
 
-function datediff {
-    d1=$(date -d "$1" +%s)
-    d2=$(date -d "$2" +%s)
-    # echo $(( (d1 - d2) / 86400 )) days ≈ $(( ((d1 - d2) / 86400) / 7 )) weeks
-    echo $(( (d1 - d2) / 86400 )) days ≈ $(bc -l <<< "scale=1 ; ((${d1} - ${d2}) / 86400) / 7") weeks
-}
+export PATH="$PATH:/media/windows/Paquets/.local/use-4.1.1/bin/"
 
-function deadlines {
-    /bin/echo -e "HSST'15 summer school \t\t\t $(datediff "June 8" "now")"
-    /bin/echo -e "MEMOCODE'15 paper submission deadline \t $(datediff "June 12" "now")"    
-}
-
-function unit {
+function entrypoint {
     echo "${bold}$(uname -a)${reset}"
+    warning.sh
     fortune -s
-    deadlines | lolcat
+    deadline-stalker.sh | lolcat
 }
 
-unit
-
-
+entrypoint

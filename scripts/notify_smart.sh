@@ -100,7 +100,7 @@ mini_bash_mode () {
 	# Checks for logs
 #	$0 ${DEVICE_PATH} -l
 done
-$(which echo) -e "[${SMART_OF_HDS}]"
+$(which echo) -e "${SMART_OF_HDS}"
 exit 0
 }
 
@@ -114,6 +114,10 @@ log_mode () {
     else
 	# Check for attribute values differences
 	notify-send -t 60000 --urgency=critical -i "error" "SMART log update on ${DEVICE_MODEL} (${DEVICE_PATH})" "`diff <(egrep -A 9 "${DEVICE_MODEL}" ${CONFIG_FILE}) <($0 ${DEVICE_PATH} -v)`"
+	# Remove old entries
+	sed -i "/\b\(${DEVICE_MODEL}\)\b/,+8d" ${CONFIG_FILE}
+	# Add new entries
+	$0 ${DEVICE_PATH} -v >> ${CONFIG_FILE}
     fi
 }
 

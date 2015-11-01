@@ -108,11 +108,21 @@
 ;; compile-command 	
 
 (custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(compilation-disable-input t)
  '(compile-command "make ")
+ '(frame-background-mode (quote light))
  '(inhibit-startup-screen t)
  '(load-home-init-file t t))
-(custom-set-faces)
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
 
 
 ;; Using Aspell as spell checker
@@ -164,6 +174,15 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; Emacs Color Theme Solarized
+;; (setq load-path
+;;       (append load-path
+;;  	      '("/home/psaxl/Paquets/.local/emacs-color-theme-solarized")))
+;; (require 'color-theme-solarized)
+;; (color-theme-solarized)
+;;  
+;; (set-frame-parameter nil 'background-mode 'light)
+;; (enable-theme)
 
 ;; Print current buffer on HTML format output with Htmlize package
 ;; Useful to print programming code without losing colors
@@ -225,3 +244,25 @@
 ; (setq x-select-enable-clipboard nil)
 ;; Paste shortcut for system clipboard (instead of kill ring)
 ; (global-set-key (kbd "C-c C-v") 'x-clipboard-yank)
+
+;; Using IBus
+(require 'ibus)
+(add-hook 'after-init-hook 'ibus-mode-on)
+
+;; For Emoji
+(setq load-path (append load-path '("/home/psaxl/Paquets/.local/list-utils")))
+(require 'list-utils)
+(setq load-path (append load-path '("/home/psaxl/Paquets/.local/ucs-utils")))
+(require 'ucs-utils)
+(setq load-path (append load-path '("/home/psaxl/Paquets/.local/font-utils")))
+(require 'font-utils)
+(setq load-path (append load-path '("/home/psaxl/Paquets/.local/unicode-fonts")))
+(require 'unicode-fonts)
+(setq unicode-fonts-block-font-mapping
+      '(("Emoticons"
+	 ("Apple Color Emoji" "Symbola" "Quivira")))
+      unicode-fonts-fontset-names '("fontset-default"))
+;; The following takes too much time to load...
+;; (unicode-fonts-setup)
+;; Use a keyboard shortcut instead to load symbols from alternative fonts
+(global-set-key "\C-c\C-u" 'unicode-fonts-setup)

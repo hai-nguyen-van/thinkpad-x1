@@ -113,6 +113,15 @@ fstrim -v / >> $LOG
 fstrim -v /home >> $LOG
 ```
 
+----------------------
+
+Manually control fan speed
+----------------------
+
+Fan noise can be very aggressive. You can manually set speed with `thinkfan`.
+  - http://overtag.dk/wordpress/2012/03/to-all-my-thinkpad-friends-running-linux/
+  - http://29a.ch/2011/10/14/review:-ubuntu-linux-on-thinkpad-x1
+  - https://askubuntu.com/questions/22108/how-to-control-fan-speed
 
 ----------------------
 
@@ -157,11 +166,18 @@ Type with IBus in Vietnamese (quốc ngữ) Telex
 
 ----------------------
 
+Get rid of Internal System Error Apport Popups
+----------------------
+  1. In `etc/default/apport`, change `enabled` from `1` to `0`
+  2. Stop Apport process: `sudo service apport stop`
+
+----------------------
+
+
 Misc
 ----------------------
   * See emoji icons with `ttf-ancient-fonts` package
 
 
 ----------------------
-
 
