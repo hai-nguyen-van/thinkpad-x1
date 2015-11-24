@@ -179,5 +179,7 @@ Misc
   * See emoji icons with `ttf-ancient-fonts` package
 
 
+Set a better display color profile
 ----------------------
+  * Use the [ICC color profile](http://www.notebookcheck.net/uploads/tx_nbc2/Lenovo_ThinkPad_X1_1366x768_glare_LP133WH2-TLM5.icc) made by X-Rite i1Display 2 on [NotebookCheck](http://www.notebookcheck.net/Review-Lenovo-ThinkPad-X1-Subnotebook.55370.0.html)
 

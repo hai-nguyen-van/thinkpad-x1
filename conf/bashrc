@@ -15,6 +15,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=
 export HISTFILESIZE=
+shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -206,6 +207,8 @@ alias nautilus="nautilus 2>/dev/null"
 alias emacs="emacs 2>/dev/null"
 
 export PATH="$PATH:/media/windows/Paquets/.local/use-4.1.1/bin/"
+
+alias captvty="wine /home/psaxl/Paquets/.local/captvty-2.3.9/Captvty.exe"
 
 function entrypoint {
     echo "${bold}$(uname -a)${reset}"
